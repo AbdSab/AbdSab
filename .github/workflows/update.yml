@@ -1,11 +1,11 @@
-name: Greetings
+name: Update
 
 on:
   schedule:
     - cron:  '*/1 * * * *'
 
 jobs:
-  greeting:
+  update:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/update
+    - uses: ./.github/actions/action
