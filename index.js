@@ -1,7 +1,6 @@
 const fs = require('fs');
 const {spawn} = require('child_process');
 const process = require('process');
-const core = require('@actions/core');
 
 const commitReadme = async () => {
     const exec = (cmd, args = []) => new Promise((resolve, reject) => {
@@ -21,7 +20,6 @@ const commitReadme = async () => {
     await exec('git', ['add', "./README.md"]);
     await exec('git', ['commit', '-m', "update"]);
     await exec('git', ['push']);
-    core.info("Readme updated successfully in the upstream repository");
     // Making job fail if one of the source fails
     process.exit(jobFailFlag ? 1 : 0);
 };
